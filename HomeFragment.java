@@ -94,6 +94,7 @@ public class HomeFragment extends Fragment {
             mHumidity.setText(mSensorValue.getHumidity()+"%");
             mTemperature.setText(mSensorValue.getTemperature()+"C");
 
+
             if (sendOnce) {
                 if (QueryPreferences.isMessageEnabledNotify(getActivity())) {
                     if (Integer.parseInt(mSensorValue.getGarbageLevel()) < QueryPreferences.getGarbageLevelLimit(getActivity())) {

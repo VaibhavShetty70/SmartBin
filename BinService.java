@@ -26,6 +26,7 @@ public class BinService extends IntentService {
     private static final String CHANNEL_ID= "my_channel_01";
     private static final int NOTIFICATION_ID= 0;
     private static final long POLL_INTERVAL_MS = TimeUnit.MINUTES.toMillis(1);
+    public static final String SERVER_ID="0";
 
     public static void setServiceAlarm(Context context, boolean isOn) {
        Intent i=BinService.newIntent(context);
@@ -100,7 +101,7 @@ public class BinService extends IntentService {
     private static int repeatingTask() {
         SensorParsingValues sensorValue = new SensorParsingValues();
         JsonParsingSB jp = new JsonParsingSB();
-        sensorValue = jp.fetchItems("9767841625");
+        sensorValue = jp.fetchItems( SERVER_ID);
         Log.i(TAG, sensorValue.getGarbageLevel());
         return Integer.parseInt(sensorValue.getGarbageLevel());
 
